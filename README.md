@@ -6,3 +6,8 @@ Raspberry Pi userspace library to simplify the use of the Digi-Dot-Booster for d
 ### DIGI-DOT-BOOSTER
 The raspberry sends SPI commands to the Digi-Dot-Booster which generates the data signal for up to 256 LEDs. 
 Detailed information about available SPI commands can be found here: http://www.led-genial.de/mediafiles//Sonstiges/digi-dot-booster_ENG.pdf
+
+### Building
+Scons is required to build the example application.
+  1. run <code>scons</code> in the source directory
+  2. run application: <code>./main</code>
