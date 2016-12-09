@@ -75,7 +75,7 @@ public:
      * @param csPin - Digital Arduino pin to use as chip select
      * @param resetPin - Digital Arduino pin connected to the RESET pin of the DD-Booster
      */
-    void configurePins(uint8_t csPin, uint8_t resetPin = 0xFF);
+    void configurePins(uint8_t resetPin = 0xFF);
 
     /**
      * Performs initial configuration of the DD-Booster to set the number of used LEDs and their type.
@@ -211,7 +211,6 @@ public:
     void show();
 
 private:
-    uint8_t _csPin;
     uint8_t _resetPin;
     uint8_t _lastIndex;
     uint8_t _fd;

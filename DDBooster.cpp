@@ -52,17 +52,13 @@
 
 #define BOOSTER_RGBORDER     0xC1
 
-DDBooster::DDBooster() : _csPin(0xFF), _resetPin(0xFF), _lastIndex(0) {
+DDBooster::DDBooster() : _resetPin(0xFF), _lastIndex(0) {
     // initialize SPI at 12MHz, MSB first, mode 0
     _fd = wiringPiSPISetup(0, 12000000);
 }
 
-void DDBooster::configurePins(uint8_t csPin, uint8_t resetPin) {
-    _csPin = csPin;
+void DDBooster::configurePins(uint8_t resetPin) {
     _resetPin = resetPin;
-
-    pinMode(_csPin, OUTPUT);
-    digitalWrite(_csPin, HIGH);
     pinMode(_resetPin, OUTPUT);
 }
 
