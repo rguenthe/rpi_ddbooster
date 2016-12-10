@@ -23,7 +23,9 @@
  */
 
 #include <iostream>
+#include <cstdlib>
 #include <stdint.h>
+#include <unistd.h>
 
 #include "DDBooster.h"
 
@@ -31,16 +33,36 @@ using namespace std;
 
 int main()
 {
-    // booster object
+    int i;
+
     DDBooster booster;
 
     // init
+    booster.reset();
     booster.init(64);
+    booster.configurePins(2);
+
     booster.clearAll();
     booster.show();
+    usleep(500);
 
-    // set white with low brightness
-    booster.setRGB(0x40, 0x40, 0x40);
-    booster.setAll();
-    booster.show();
+    while(1) {
+
+		// set white
+        booster.setRGB(40, 40, 40);
+        for(i=0; i<64; i++) {
+            booster.setLED(i);
+            booster.show();
+            usleep(50000);
+        }
+
+		// clear LEDs
+		booster.setRGB(0, 0, 0);
+		for(i=0; i<64; i++) {
+            booster.setLED(i);
+            booster.show();
+            usleep(50000);
+        }
+    }
 }
+
