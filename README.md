@@ -9,5 +9,8 @@ Detailed information about available SPI commands can be found here: http://www.
 
 ### Building
 Scons is required to build the example application.
-  1. run <code>scons</code> in the source directory
-  2. run application: <code>./main</code>
+  - call <code>scons</code> and <code>sudo scons install</code> to build and install the library
+  - call <code>./main</code> to run the example application
+
+  - <code>scons -c</code> will clear all built objects
+  - <code>sudo scons -c install</code> will remove the installed shared library

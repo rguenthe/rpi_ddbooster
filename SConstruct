@@ -21,5 +21,16 @@
 #  SOFTWARE.
 #
 
-StaticLibrary('ddbooster', ['DDBooster.cpp'])
-Program('main.cpp', LIBS=['wiringPi', 'ddbooster'], LIBPATH='.')
+env = Environment()
+
+# build library
+lib_target = 'ddbooster'
+lib_srcs = ['DDBooster.cpp']
+lib_installdir = '/usr/lib'
+libddbooster_shared = env.SharedLibrary(target=lib_target, source=lib_srcs)
+env.Install(lib_installdir, libddbooster_shared)
+
+env.Alias('install', lib_installdir)
+
+# build example application
+env.Program('main', source=["main.cpp"], LIBS=['wiringPi', libddbooster_shared])
