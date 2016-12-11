@@ -1,0 +1,8 @@
+*.pyc
+*.so
+*.egg-info/
+*.egg
+*.zip
+build/
+ddbooster.py
+ddbooster_wrap.cxx
